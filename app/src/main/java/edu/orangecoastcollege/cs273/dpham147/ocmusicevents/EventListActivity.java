@@ -1,7 +1,6 @@
 package edu.orangecoastcollege.cs273.dpham147.ocmusicevents;
 
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,6 @@ import java.util.ArrayList;
 
 public class EventListActivity extends ListActivity {
 
-    private Context context = this;
     private ArrayList<MusicEvent> allMusicEvents;
 
     @Override
@@ -21,7 +19,7 @@ public class EventListActivity extends ListActivity {
 
         // Set adapter (binds listview with data in MusicEvent.java
         // Use an array adapter as data is in an array
-        setListAdapter(new MusicEventAdapter(context, R.layout.music_event_list_item, allMusicEvents));
+        setListAdapter(new MusicEventAdapter(this, R.layout.music_event_list_item, allMusicEvents));
 
         // setContentView(R.layout.activity_event_list); //crashes
     }
