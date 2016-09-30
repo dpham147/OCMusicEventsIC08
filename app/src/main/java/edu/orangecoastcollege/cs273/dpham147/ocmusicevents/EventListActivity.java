@@ -1,13 +1,18 @@
 package edu.orangecoastcollege.cs273.dpham147.ocmusicevents;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class EventListActivity extends ListActivity {
+
+    private Context context = this;
+    private ArrayList<MusicEvent> allMusicEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +21,7 @@ public class EventListActivity extends ListActivity {
 
         // Set adapter (binds listview with data in MusicEvent.java
         // Use an array adapter as data is in an array
-        setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, MusicEvent.titles));
+        setListAdapter(new MusicEventAdapter(context, R.layout.music_event_list_item, allMusicEvents));
 
         // setContentView(R.layout.activity_event_list); //crashes
     }
@@ -24,8 +29,7 @@ public class EventListActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView list, View v, int pos, long id) {
         // use position to extract title and details (MusicEvent.java)
-        String title = MusicEvent.titles[pos];
-        String details = MusicEvent.details[pos];
+        String title = allMusicEvents.get(pos).getTitle();
 
         Intent detailsIntent = new Intent(this, EventDetailsActivity.class);
         detailsIntent.putExtra("Title", title);
