@@ -17,7 +17,12 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     private ImageView eventImageView;
     private TextView eventTitleTextView;
-    private TextView eventDetailsTextView;
+    private TextView eventDateDayTextView;
+    private TextView eventTimeTextView;
+    private TextView eventLocationTextView;
+    private TextView eventAddress1TextView;
+    private TextView eventAddress2TextView;
+
     // in order to use AssetManager, need to know context
     private Context context = (Context) this;
 
@@ -28,12 +33,15 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         eventImageView = (ImageView) findViewById(R.id.eventImageView);
         eventTitleTextView = (TextView) findViewById(R.id.eventTitleTextView);
-        eventDetailsTextView = (TextView) findViewById(R.id.eventDetailsTextView);
+        eventDateDayTextView = (TextView) findViewById(R.id.eventDateDayTextView);
+        eventTimeTextView = (TextView) findViewById(R.id.eventTimeTextView);
+        eventLocationTextView = (TextView) findViewById(R.id.eventLocationTextView);
+        eventAddress1TextView = (TextView) findViewById(R.id.eventAddress1TextView);
+        eventAddress2TextView = (TextView) findViewById(R.id.eventAddress2TextView);
 
         Intent fromListActivity = getIntent();
 
         String title = fromListActivity.getStringExtra("Title");
-        String details = fromListActivity.getStringExtra("Details");
         String imageFileName = title.replace(" ", "") + ".jpeg";
 
         // load image from assets folder using asset manager class
@@ -48,6 +56,10 @@ public class EventDetailsActivity extends AppCompatActivity {
         }
 
         eventTitleTextView.setText(title);
-        eventDetailsTextView.setText(details);
+        eventDateDayTextView.setText(fromListActivity.getStringExtra("DayDate"));
+        eventTimeTextView.setText(fromListActivity.getStringExtra("Time"));
+        eventLocationTextView.setText(fromListActivity.getStringExtra("Location"));
+        eventAddress1TextView.setText(fromListActivity.getStringExtra("Address1"));
+        eventAddress2TextView.setText(fromListActivity.getStringExtra("Address2"));
     }
 }

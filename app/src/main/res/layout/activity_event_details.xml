@@ -10,33 +10,62 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.orangecoastcollege.cs273.dpham147.ocmusicevents.EventDetailsActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="1">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
         android:id="@+id/eventImageView"
-        android:layout_weight="5.5"
-        android:adjustViewBounds="true"
+        android:layout_gravity="center"
         android:scaleType="fitCenter"
-        android:layout_gravity="center" />
+        android:adjustViewBounds="true"
+        android:layout_weight="0.06"
+        android:layout_width="350dp"
+        android:layout_height="350dp" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/eventTitleTextView"
-        android:layout_weight=".5"
-        android:layout_marginTop="10dp"
-        android:textSize="30sp" />
+        android:layout_marginTop="20dp"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:text="TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/eventDetailsTextView"
-        android:layout_weight="4"
         android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:id="@+id/eventDateDayTextView" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventTimeTextView"
         android:textSize="18sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventLocationTextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventAddress1TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/eventAddress2TextView"
+        android:textSize="18sp" />
+
 </LinearLayout>
