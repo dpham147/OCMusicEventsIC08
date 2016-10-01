@@ -56,7 +56,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         }
 
         eventTitleTextView.setText(title);
-        eventDateDayTextView.setText(fromListActivity.getStringExtra("DayDate"));
+        eventDateDayTextView.setText(fromListActivity.getStringExtra("DateDay"));
         eventTimeTextView.setText(fromListActivity.getStringExtra("Time"));
         eventLocationTextView.setText(fromListActivity.getStringExtra("Location"));
         eventAddress1TextView.setText(fromListActivity.getStringExtra("Address1"));
