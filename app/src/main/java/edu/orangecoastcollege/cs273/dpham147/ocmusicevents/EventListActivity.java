@@ -1,21 +1,31 @@
 package edu.orangecoastcollege.cs273.dpham147.ocmusicevents;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class EventListActivity extends ListActivity {
 
+    private Context context = this;
     private ArrayList<MusicEvent> allMusicEvents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        try {
+            allMusicEvents = JSONLoader.loadJSONFromAsset(context);
+        }
+        catch (IOException ex) {
+            Log.e("OC Music Events", "Error Loading JSON data." + ex.getMessage());
+        }
 
         // Set adapter (binds listview with data in MusicEvent.java
         // Use an array adapter as data is in an array
